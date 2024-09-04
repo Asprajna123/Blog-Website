@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Home</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    <form
+      class="my-4 mx-3"
+      action="/blog"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          name="title"
+          type="text"
+          class="form-control"
+          id="title"
+          aria-describedby="title"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Body</label>
+        <textarea
+          type="email"
+          name="body"
+          class="form-control"
+          id="body"
+          aria-describedby="body"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="file" class="form-label">choose File </label>
+        <input type="file" name="file" class="form-control" id="file" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </body>
+</html>

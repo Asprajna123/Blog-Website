@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Dependency directories
+bower_components/
+
+# Optional npm cache directory
+.npm
+
+# Local development files
+.DS_Store
+
+# Build output directories
+dist/
+build/
+
+# MongoDB data files
+*.pid
+*.seed
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

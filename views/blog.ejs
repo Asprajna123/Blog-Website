@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Blog</title>
+  </head>
+  <style>
+    pre {
+      overflow-x: auto;
+      white-space: pre-wrap; /* Preserve whitespace */
+    }
+  </style>
+  <body>
+    <%- include('./partials/nav') %>
+    <div class="container m-4">
+      <div class="text-center">
+        <h1><%= blog.title %></h1>
+        <img src="<%= blog.blogImgURL %>" alt="" />
+      </div>
+      <pre class="my-4">
+        <%= blog.body %>
+      </pre>
+    </div>
+    <div class="d-flex flex-row align-items-center m-3">
+      <img
+        src="<%= blog.createdBy.profilePhotoURL %>"
+        alt=""
+        style="width: 50px; border-radius: 50%"
+      />
+      <h6><%= blog.createdBy.name %></h6>
+    </div>
+
+    <div class="container mt-4">
+      <h2>Comments</h2>
+      <% if (locals.user) { %>
+      <form
+        class="my-4 mx-3"
+        action="/blog/comment/<%= blog._id %>"
+        method="POST"
+      >
+        <div class="mb-3">
+          <input
+            type="text"
+            name="content"
+            class="form-control"
+            placeholder="Comment here as <%= user.name %>"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </form>
+      <% } %>
+      <div class="m-4">
+        <% comments.forEach(comment => { %>
+        <div class="d-flex flex-row align-items-center">
+          <img
+            src="<%= comment.createdBy.profilePhotoURL %>"
+            alt=""
+            style="width: 50px; border-radius: 50%"
+          />
+          <h6><%= comment.createdBy.name %></h6>
+        </div>
+        <pre><%= comment.content %></pre>
+        <% }) %>
+      </div>
+    </div>
+    <%- include('./partials/script') %>
+  </body>
+</html>
