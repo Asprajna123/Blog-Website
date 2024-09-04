@@ -10,7 +10,7 @@ const blogRoute = require("./routes/blog");
 const Blog = require("./models/blog");
 
 const app = express();
-const PORT = 8000 || process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 const uri = "mongodb+srv://asprajna04:kXZY6QywIuWKjxl5@cluster0.bqhqc.mongodb.net/blogwebsite?retryWrites=true&w=majority";
 
